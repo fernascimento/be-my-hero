@@ -12,6 +12,9 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render 'shared/flashes' %>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to "#", class: "navbar-brand" do %>
         <i class="fas fa-mask"></i>
