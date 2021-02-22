@@ -1,0 +1,21 @@
+<div>
+  <%= simple_form_for @hero do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :skill %>
+    <%= f.text_area :skill, "What's your expertise?" %>
+    <br>
+    <%= f.label :description, "Tell me what you're all about" %>
+    <%= f.text_area :description %>
+    <br>
+    <%= f.label :price %>
+    <%= f.number_field (:price, in: ${1.0..200.0}, step: ${0.5}) %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to  "Back to list", @hero_path %>
+</div>
