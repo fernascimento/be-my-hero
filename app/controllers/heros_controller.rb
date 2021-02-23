@@ -15,13 +15,13 @@ class HerosController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
     @hero = Hero.new(hero_params)
-    @hero.user = @user
+    @hero.user = current_user
+    authorize @hero
     if @hero.save
-      redirect_to hero_path(@hero)
+      redirect_to heros_path(@hero)
     else
-      render 'new'
+      render ‘new’
     end
   end
 
