@@ -1,1 +1,215 @@
 // Specific CSS for your home-page
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  text-align: center;
+  h1 {
+    font-family: Bangers;
+    color: gold;
+    font-size: 144px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 153px;
+    letter-spacing: 0em;
+    filter: drop-shadow(4px, 0px, 8px)
+  }
+  p {
+    font-family: Bangers;
+    font-size: 52px;
+    color: red;
+    opacity: .7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
+
+.btn-gradient {
+  margin-top: 10px;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#167FFB, #0F60C4);
+  transition: background 0.3s ease;
+  border: 1px solid #0F60C4;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
+
+.search-form-control {
+  position: relative;
+}
+
+
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #1EDD88;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+
+.bubble {
+  display: inline-block;
+
+  position: relative;
+  padding: 30px 40px;
+  border-radius: 10px;
+  border: 3px solid black;
+  background: white;
+  font-family: "Permanent Marker";
+  clear: both;
+
+   &:before {
+     content: '';
+     position: absolute;
+     bottom: -50px;
+     height: 50px;
+     width: 90px;
+   }
+
+  &.left {
+    float: left;
+    margin: 10px 100px 60px 10px;
+    &:before {
+      border-radius: 0 0 100%;
+      box-shadow:
+        -2px -2px 0 0 #000 inset,
+        -23px 0 0 0 #fff inset,
+        -25px -2px 0 0 #000 inset;
+      left: 0;
+    }
+
+  }
+  &.right {
+    float: right;
+    margin: 10px 10px 60px 100px;
+    &:before {
+      border-radius: 0 0 0 100%;
+      box-shadow:
+        2px -2px 0 0 #000 inset,
+        23px 0 0 0 #fff inset,
+        25px -2px 0 0 #000 inset;
+      right: 0;
+    }
+  }
+
+  &.think {
+    &:before {
+      height: 3px;
+      width: 3px;
+      bottom: -20px;
+      border-radius: 100%;
+      background: #fff;
+    }
+    &.left:before {
+      left: 50px;
+      box-shadow:
+        0 0 0 7px white,
+        0 0 0 10px black,
+        -20px 15px 0 5px white,
+        -20px 15px 0 8px black,
+        -40px 20px 0 2px white,
+        -40px 20px 0 5px black;
+    }
+    &.right:before {
+      right: 50px;
+      box-shadow:
+        0 0 0 7px white,
+        0 0 0 10px black,
+        20px 15px 0 5px white,
+        20px 15px 0 8px black,
+        40px 20px 0 2px white,
+        40px 20px 0 5px black;
+    }
+  }
+  &.yell {
+    &:before {
+      height: 0px;
+      width: 0px;
+      bottom: -8px;
+      border-radius: 0;
+      background: #fff;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -41px;
+      height: 20px;
+      width: 59px;
+    }
+    &.left {
+      &:before {
+        transform: skew(-45deg);
+        left: 50px;
+        box-shadow:
+          //0 0 0 7px white,
+          0 -3px 0 5px white,
+          0 0 0 5px white,
+          0 8px 0 5px white,
+          8px 8px 0 5px white,
+          16px 8px 0 5px white,
+          24px 8px 0 5px white,
+
+          0 0 0 8px black,
+          0 8px 0 8px black,
+          8px 8px 0 8px black,
+          16px 8px 0 8px black,
+          24px 8px 0 8px black;
+      }
+      &:after {
+        border-radius: 0 0 60%;
+        transform: skew(-45deg);
+        box-shadow:
+          -3px -2px 0 0 #000 inset,
+          -14px 0 0 0 #fff inset,
+          -17px -2px 0 0 #000 inset;
+        left: 0;
+      }
+    }
+    &.right {
+      &:before {
+        transform: skew(45deg);
+        right: 50px;
+        box-shadow:
+          0 -3px 0 5px white,
+          0 0 0 5px white,
+          0 8px 0 5px white,
+          -8px 8px 0 5px white,
+          -16px 8px 0 5px white,
+          -24px 8px 0 5px white,
+          0 0 0 8px black,
+          0 8px 0 8px black,
+          -8px 8px 0 8px black,
+          -16px 8px 0 8px black,
+          -24px 8px 0 8px black;
+      }
+      &:after {
+      border-radius: 0 0 0 60%;
+        transform: skew(45deg);
+        box-shadow:
+          3px -2px 0 0 #000 inset,
+          14px 0 0 0 #fff inset,
+          17px -2px 0 0 #000 inset;
+        right: 0;
+      }
+    }
+  }
+}
