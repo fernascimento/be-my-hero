@@ -1,6 +1,8 @@
-class HeroesController < ApplicationController
+class HerosController < ApplicationController
+  before_action :set_hero, only: [:show, :edit, :update, :destroy]
   def index
-    Hero.all
+    # Hero.all
+    @heros = policy_scope(Hero)
   end
 
   def show
@@ -9,6 +11,7 @@ class HeroesController < ApplicationController
 
   def new
     @hero = Hero.new
+    authorize @hero
   end
 
   def create
@@ -26,5 +29,10 @@ class HeroesController < ApplicationController
 
   def hero_params
     params.require(:hero).permit(:name, :description, :price, :skill)
+  end
+
+  def set_hero
+    @hero = Hero.find(params[:id])
+    authorize @hero
   end
 end
