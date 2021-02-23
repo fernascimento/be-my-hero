@@ -14,15 +14,33 @@ class HerosController < ApplicationController
     authorize @hero
   end
 
+  def edit
+  end
+
   def create
-    @user = User.find(params[:user_id])
     @hero = Hero.new(hero_params)
-    @hero.user = @user
+    @hero.user = current_user
+    authorize @hero
     if @hero.save
       redirect_to hero_path(@hero)
     else
       render 'new'
     end
+  end
+
+    # PATCH/PUT /heros/1
+  def update
+    if @hero.update(hero_params)
+      redirect_to hero_path(@hero), notice: 'Hero was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  # DELETE /heros/1
+  def destroy
+    @hero.destroy
+    redirect_to heros_path, notice: 'Successfully destroyed.'
   end
 
   private
