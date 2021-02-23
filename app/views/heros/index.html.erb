@@ -32,7 +32,11 @@
     <% @heros.each do |hero| %>
       <div class="col-lg-4 my-3">
         <div class="card-trip">
-          <img src="<%= cl_image_path hero.photo.key, height: 300, crop: :fill %>" />
+          <% if hero.photos.attached? %>
+            <%= cl_image_tag hero.photos.first.key, height: 300, crop: :fill %>
+          <% else %>
+            <img src="https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg" />
+           <% end %>
           <div class="card-trip-infos">
             <div>
               <h3><%= link_to  hero.name, heros_path(hero) %></h3>
