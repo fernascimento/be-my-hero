@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   get 'heros/:id', to: 'heros#show'
   patch 'heros/:id', to: 'heros#update'
   put 'heros/:id', to: 'heros#update'
+<<<<<<< HEAD
   delete 'heros/:id', to: 'heros#destroy'
+=======
+  delete 'heros/:id', to: 'heros#destroy', as: 'delete_hero'
+>>>>>>> master
 end

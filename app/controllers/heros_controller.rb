@@ -36,5 +36,3 @@ class HerosController < ApplicationController
     authorize @hero
   end
 end
-
-
