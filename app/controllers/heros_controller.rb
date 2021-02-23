@@ -7,6 +7,7 @@ class HerosController < ApplicationController
 
   def show
     set_hero
+    authorize @hero
   end
 
   def new
@@ -33,6 +34,5 @@ class HerosController < ApplicationController
 
   def set_hero
     @hero = Hero.find(params[:id])
-    authorize @hero
   end
 end
