@@ -28,7 +28,7 @@ class HerosController < ApplicationController
   private
 
   def hero_params
-    params.require(:hero).permit(:name, :description, :price, :skill)
+    params.require(:hero).permit(:name, :description, :price, :skill, :photos [])
   end
 
   def set_hero
