@@ -1,0 +1,34 @@
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://miro.medium.com/max/1400/0*zL5gOejQqzvWdaF1.jpg);">
+  <div class="d-flex justify-content-center">
+    <div class="d-inline-flex flex-column">
+      <h1>Find your hero</h1>
+      <h2>Browse all heroes and find the one you need</h2>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <br>
+  <% if policy(Hero).create? %>
+    <button class="btn btn-outline-primary"><%= link_to "Become a hero", new_hero_path %></button>
+  <% end %>
+  <div class="row">
+    <% @heros.each do |hero| %>
+      <div class="col-lg-4 my-3">
+        <div class="card-trip">
+          <img src="<%= cl_image_path hero.photo.key, height: 300, crop: :fill %>" />
+          <div class="card-trip-infos">
+            <div>
+              <h3><%= link_to  hero.name, heros_path(hero) %></h3>
+              <p><%= hero.description %></p>
+          </div>
+          <p class="card-trip-pricing"><%= hero.price %>€</p>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
