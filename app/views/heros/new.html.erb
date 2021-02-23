@@ -1,0 +1,14 @@
+<div>
+  <%= simple_form_for @hero do |f| %>
+    <%= f.input :name %>
+    <%= f.input :skill %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%#= f.number_field (:price, in: ${1.0..200.0}, step: ${0.5}) %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to  "Back to list", new_hero_path %>
+</div>

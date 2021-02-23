@@ -1,0 +1,57 @@
+<div class="container">
+  <h1><%= Batman %></h1>
+  <%= "Back to all Heroes"%>
+  <br>
+  <% #if cocktail.photo? %>
+      <% #background_url = cl_image_path cocktail.photos.first.key, width: 400, height: 500, crop: :fill %>
+    <% #else %>
+      <% background_url = 'https://source.unsplash.com/500x400/?cocktail' %>
+    <% #end %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= background_url %>');">
+
+
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h3>Powers</h3>
+      <table class="table table-bordered">
+        <tbody>
+            <tr>
+              <td><%= rich %></td>
+              <td><%= strenght %></td>
+              <td><%= intelligence %></td>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <%= simple_form_for @bookings do |f| %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :time %>
+        <%= f.input :emergency %>
+      <%= f.submit %>
+    </div>
+  </div>
+
+  <%= link_to "Back to all Heroes", root_path %>
+
+  <h3>Reviews</h3>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill">
+              <i class="fa <%= 5 'fa-star' %>"></i>
+          </span>
+          <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Sed eligendi excepturi, quisquam quod minima quia consequuntur facilis, praesentium non delectus voluptate voluptates magni rem illum, dolor adipisci unde omnis aut?</p>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill">
+              <i class="fa <%= 5 'fa-star' %>"></i>
+          </span>
+          <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Sed eligendi excepturi, quisquam quod minima quia consequuntur facilis, praesentium non delectus voluptate voluptates magni rem illum, dolor adipisci unde omnis aut?</p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
