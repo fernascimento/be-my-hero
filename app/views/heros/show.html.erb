@@ -1,25 +1,29 @@
 <div class="container">
-  <h1><%= "Batman" %></h1>
-  <%= "Back to all Heroes"%>
+  <h1><%= @hero.name %></h1>
+  <%= link_to "Back to all Heroes", heros_path %>
   <br>
-
-<%= cl_image_tag @hero.photos.first, height: 300, width: 400, crop: :fill %>
-
-
+  <% if @hero.photos.attached? %>
+    <%= cl_image_tag @hero.photos.first.key, height: 300, crop: :fill %>
+  <% else %>
+    <img src="https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg" height="300">
+  <% end %>
 
   <div class="row">
     <div class="col-sm-12 col-md-6">
       <h3>Powers</h3>
       <table class="table table-bordered">
             <tr>
-              <td><%= "rich" %></td>
-              <td><%= "strenght" %></td>
-              <td><%= "intelligence" %></td>
+              <td><%= @hero.price %></td>
+              <td>⭐️⭐️⭐️</td>
+              <td><%= @hero.skill %></td>
             </tr>
       </table>
     </div>
   </div>
+  <div><%= @hero.description %></div>
 
-  <%= link_to "Back to all Heroes", root_path %>
-
+  <h3>Reviews</h3>
+    <div class="row">
+      <p>⭐️⭐️⭐️ | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis laboriosam nemo ipsa odit et consequuntur quod excepturi non magnam ducimus quis asperiores expedita iste, modi minus accusantium vero. Beatae.</p>
+    </div>
 </div>
