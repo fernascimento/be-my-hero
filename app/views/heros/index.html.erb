@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-<h1>Heroes</h1>
 
-<% @heros.each do |hero| %>
-<ul>
-  <li>
-    <%= link_to hero.name, hero_path(hero) %>
-  </li>
-</ul>
-<% end %>
-<% if policy(Hero).create? %>
-<%= link_to "Create!", new_hero_path%>
-<% end %>
-=======
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://miro.medium.com/max/1400/0*zL5gOejQqzvWdaF1.jpg);">
   <div class="d-flex justify-content-center">
@@ -39,7 +26,7 @@
            <% end %>
           <div class="card-trip-infos">
             <div>
-              <h3><%= link_to  hero.name, heros_path(hero) %></h3>
+              <h3><%= link_to  hero.name, hero_path(hero) %></h3>
               <p><%= hero.description %></p>
           </div>
           <p class="card-trip-pricing"><%= hero.price %>€</p>
@@ -50,4 +37,3 @@
   </div>
 </div>
 
->>>>>>> master

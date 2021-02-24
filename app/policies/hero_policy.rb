@@ -3,18 +3,15 @@ class HeroPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-<<<<<<< HEAD
+  end
 
-
-=======
->>>>>>> master
+  def show?
+    true
   end
 
   def create?
     return true
   end
-<<<<<<< HEAD
-=======
 
   def update?
     user_is_owner_or_admin?
@@ -29,5 +26,4 @@ class HeroPolicy < ApplicationPolicy
   def user_is_owner_or_admin?
     user == record.user || user.admin == true
   end
->>>>>>> master
 end
