@@ -19,6 +19,7 @@
     <% @heros.each do |hero| %>
       <div class="col-lg-4 my-3">
         <div class="card-trip">
+          <%= link_to "", hero_path(hero), class: 'card-link' %>
           <% if hero.photos.attached? %>
             <%= cl_image_tag hero.photos.first.key, height: 300, crop: :fill %>
           <% else %>
