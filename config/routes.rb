@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # patch 'heros/:id', to: 'heros#update'
   # put 'heros/:id', to: 'heros#update'
   # delete 'heros/:id', to: 'heros#destroy', as: 'delete_hero'
-  resources :heros
-  resources :bookings
+  resources :heros do
+    resources :bookings, only: [:new, :create]
+  end
+
+  resources :bookings, only: [:index, :destroy, :show, :update, :edit]
 end
