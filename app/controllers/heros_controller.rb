@@ -5,7 +5,7 @@ class HerosController < ApplicationController
   end
 
   def show
-    @hero = Hero.find(params[:id])
+    authorize @hero
   end
 
   def new
@@ -13,15 +13,13 @@ class HerosController < ApplicationController
     authorize @hero
   end
 
-  def edit
-  end
-
   def create
+    # @user = User.find(params[:user_id])
     @hero = Hero.new(hero_params)
     @hero.user = current_user
     authorize @hero
     if @hero.save
-      redirect_to heros_path(@hero)
+      redirect_to hero_path(@hero)
     else
       render :new
     end
@@ -30,16 +28,17 @@ class HerosController < ApplicationController
     # PATCH/PUT /heros/1
   def update
     if @hero.update(hero_params)
+      authorize @hero
       redirect_to hero_path(@hero), notice: 'Hero was successfully updated.'
     else
-      render :edit
+      render 'new'
     end
   end
 
-  # DELETE /heros/1
   def destroy
+    authorize @hero
     @hero.destroy
-    redirect_to heros_path, notice: 'Successfully destroyed.'
+    redirect_to heros_path
   end
 
   private
@@ -50,6 +49,5 @@ class HerosController < ApplicationController
 
   def set_hero
     @hero = Hero.find(params[:id])
-    authorize @hero
   end
 end

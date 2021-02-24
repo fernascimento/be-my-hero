@@ -1,0 +1,13 @@
+<div class="col-sm-12 col-md-6">
+  <%= simple_form_for @bookings do |f| %>
+    <%= f.input :start_date, as: :date %>
+    <%= f.input :time %>
+    <%= f.input :emergency %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+# copy and paste into show form
+    <div class="col-sm-12 col-md-6">
+      <%= render 'bookings/new' %>
+    </div>
