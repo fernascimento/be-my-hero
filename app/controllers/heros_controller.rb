@@ -6,6 +6,7 @@ class HerosController < ApplicationController
 
   def show
     authorize @hero
+    @booking = Booking.new
   end
 
   def new
