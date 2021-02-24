@@ -33,4 +33,13 @@
       data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"> Delete listing!</i>
       <% end %>
     <% end %>
+    <br>
+    <%= link_to  "Book me!", new_hero_booking_path(@hero) %>
+    <div class="booking">
+      <% @hero.bookings.each do |booking|  %>
+        <p>Booked for: <%= booking.date %></p>
+      <% end %>
+    </div>
 </div>
+
+
