@@ -19,8 +19,9 @@
     font-family: Bangers;
     font-size: 52px;
     color: red;
-    opacity: .7;
+    opacity: .9;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    filter: drop-shadow(4px, 0px, 8px)
   }
 }
 
