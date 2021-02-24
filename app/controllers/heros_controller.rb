@@ -23,7 +23,7 @@ class HerosController < ApplicationController
     if @hero.save
       redirect_to heros_path(@hero)
     else
-      render ‘new’
+      render :new
     end
   end
 
