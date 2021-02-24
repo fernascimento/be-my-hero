@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # put 'heros/:id', to: 'heros#update'
   # delete 'heros/:id', to: 'heros#destroy', as: 'delete_hero'
   resources :heros
+  resources :bookings
 end
