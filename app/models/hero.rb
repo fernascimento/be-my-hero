@@ -7,4 +7,15 @@ class Hero < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :price, numericality: { only_integer: true }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_skill_description,
+    against: {
+      name: 'A',
+      skill: 'B',
+      description: 'C'
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
