@@ -1,5 +1,14 @@
-<h1>Bookings:</h1>
+<h1>Your Bookings:</h1>
 
 <% @bookings.each do |booking| %>
-  <p><%= booking.description %></p>
-<% end %>
+  <h2>Booking #<%= link_to  booking.id, booking_path(booking) %> for: </h2>
+  <p>Hero: <%= link_to  booking.hero.name, booking_path(booking) %></p>
+  <p>Date: <%= booking.date %></p>
+  <% if booking.date < Date.today %>
+    <p><%= (Date.today - booking.date).to_i.abs %> day(s) ago</p>
+  <% else %>
+    <p>In <%= (booking.date - Date.today).to_i.abs %> day(s)</p>
+  <% end %>
+  <%= link_to  "Update booking", edit_booking_path(booking) %>
+ <% end %>
+
