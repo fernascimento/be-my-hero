@@ -1,7 +1,16 @@
 class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :edit, :update, :destroy]
   def index
-    @heros = policy_scope(Hero)
+    if params[:query].present?
+      sql_query = " \
+        heros.name @@ :query \
+        OR heros.skill @@ :query \
+        OR heros.description @@ :query \
+      "
+      @heros = policy_scope(Hero.where(sql_query, query: "%#{params[:query]}%"))
+    else
+      @heros = policy_scope(Hero)
+    end
   end
 
   def show
