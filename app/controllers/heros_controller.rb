@@ -14,6 +14,10 @@ class HerosController < ApplicationController
     authorize @hero
   end
 
+  def edit
+    authorize @hero
+  end
+
   def create
     # @user = User.find(params[:user_id])
     @hero = Hero.new(hero_params)
@@ -32,7 +36,7 @@ class HerosController < ApplicationController
       authorize @hero
       redirect_to hero_path(@hero), notice: 'Hero was successfully updated.'
     else
-      render 'new'
+      render :edit
     end
   end
 
