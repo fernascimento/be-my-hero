@@ -1,57 +1,65 @@
-<div class="container">
-  <h1><%= @hero.name %></h1>
-  <%= link_to "Back to all Heroes", heros_path %>
-  <br>
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <% if @hero.photos.attached? %>
-        <%= cl_image_tag @hero.photos.first.key, height: 300, crop: :fill %>
-      <% else %>
-        <img src="https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg" height="300">
-      <% end %>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <%= render "bookings/new", hero: @hero, booking: @booking%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://image.freepik.com/free-vector/yellow-comic-background-pop-art-comic-background-with-yellow-color_9306-180.jpg);">
+  <div class="d-flex justify-content-center">
+    <div class="d-inline-flex flex-column">
+      <h1><%= @hero.name %></h1>
+      <br>
     </div>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <h4><%= @hero.price %> €/Hr</h4>
-      <p>⭐️⭐️⭐️</p>
-      <h3>Powers</h3>
-      <table class="table table-bordered">
-            <tr>
-              <td><%= @hero.skill %></td>
-            </tr>
-      </table>
-    </div>
-  </div>
-  <div><%= @hero.description %></div>
-
-
-
-  <h3>Reviews</h3>
+  <div class="container">
     <div class="row">
-      <p>⭐️⭐️⭐️ | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis laboriosam nemo ipsa odit et consequuntur quod excepturi non magnam ducimus quis asperiores expedita iste, modi minus accusantium vero. Beatae.</p>
-    </div>
+      <div class="col-sm-12 col-md-6">
+        <% if @hero.photos.attached? %>
+        <div class="box box3" style="background-image: url('<%= cl_image_path @hero.photos.first.key, :width=>358, :height=>262, :crop=>'fill' %>')">
+          <% else %>
+          <div class="box box3" style="background-image: url('https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg')">
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <%= render "bookings/new", hero: @hero, booking: @booking%>
+        </div>
 
-    <% if policy(@hero).edit? %>
+
+
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h4><%= @hero.price %> €/Hr</h4>
+            <p>⭐️⭐️⭐️</p>
+            <h3>Powers</h3>
+            <table class="table table-bordered">
+              <tr>
+                <td><%= @hero.skill %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div><%= @hero.description %></div>
+
+
+
+      <h3>Reviews</h3>
+      <div class="row">
+        <p>⭐️⭐️⭐️ | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis laboriosam nemo ipsa odit et consequuntur quod excepturi non magnam ducimus quis asperiores expedita iste, modi minus accusantium vero. Beatae.</p>
+      </div>
+
+      <% if policy(@hero).edit? %>
       <%= link_to 'Edit', edit_hero_path(@hero) %>
-    <% end %>
-    <% if policy(@hero).destroy? %>
+      <% end %>
+      <% if policy(@hero).destroy? %>
       <%= link_to hero_path,
       method: :delete,
       data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"> Delete listing!</i>
       <% end %>
-    <% end %>
-    <br>
-    <%= link_to  "Book me!", new_hero_booking_path(@hero) %>
-    <div class="booking">
-      <% @hero.bookings.each do |booking|  %>
-        <p>Booked for: <%= booking.date %></p>
       <% end %>
+      <br>
+      <%= link_to  "Book me!", new_hero_booking_path(@hero) %>
+      <div class="booking">
+        <% @hero.bookings.each do |booking|  %>
+        <p>Booked for: <%= booking.date %></p>
+        <% end %>
+      </div>
     </div>
-</div>
-
-
+  </div>
