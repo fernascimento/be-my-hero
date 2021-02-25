@@ -1,4 +1,45 @@
-<h1>Your Bookings:</h1>
+<div class="border border-5 border-dark mt-3">
+  <h1 class="text-center p-2">My bookings</h1>
+
+
+  <article class="comic">
+    <div class="panel">
+      <p class="text top-left">Next booking</p>
+      <div class="d-flex justify-content-center">
+        <div class="d-inline-flex flex-column">
+          <div class="container">
+            <% if @bookings.last.date > Date.today %>
+              <h2>Booking #<%= link_to  @bookings.last.id, booking_path(@bookings.last) %></h2>
+              <p>Hero: <%= link_to  @bookings.last.hero.name, booking_path(@bookings.last) %></p>
+              <p>Date: <%= @bookings.last.date %></p>
+              <%= link_to  "Update booking", edit_booking_path(@bookings.last) %>
+              <p class="text bottom-right">In <%= (@bookings.last.date - Date.today).to_i.abs %> day(s)</p>
+            <% else %>
+              <h2 class="d-inline-block">No upcoming bookings...</h2>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <p class="text top-left">Last booking:</p>
+      <% if @bookings.nil? %>
+        <h2 class="d-inline-block">No past booking...</h2>
+      <% else %>
+        <h2>Booking #<%= link_to  @bookings.last.id, booking_path(@bookings.last) %></h2>
+        <p>Hero: <%= link_to  @bookings.last.hero.name, booking_path(@bookings.last) %></p>
+        <p>Date: <%= @bookings.last.date %></p>
+      <% end %>
+    </div>
+  </article>
+
+
+  <article class="comic">
+    <div class="panel">
+      <p class="text top-left">All past bookings</p>
+    </div>
+  </article>
+</div>
 
 <% @bookings.each do |booking| %>
   <h2>Booking #<%= link_to  booking.id, booking_path(booking) %> for: </h2>
@@ -12,3 +53,25 @@
   <%= link_to  "Update booking", edit_booking_path(booking) %>
  <% end %>
 
+
+<article class="comic">
+  <div class="panel">
+    <p class="text top-left">Suddenly...</p>
+    <p class="text bottom-right">...something amazing happened</p>
+  </div>
+  <div class="panel">
+    <p class="text top-left">Try resizing...</p>
+    <p class="text bottom-right">...it's responsive</p>
+  </div>
+  <div class="panel">
+    <p class="speech">A speech bubble</p>
+  </div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel">
+    <p class="text bottom-right">THE END</p>
+  </div>
+</article>
