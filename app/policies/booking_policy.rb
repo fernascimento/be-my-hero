@@ -9,6 +9,10 @@ class BookingPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+  def edit?
+    user_is_owner_or_admin?
+  end
+
   def create?
     return true
   end

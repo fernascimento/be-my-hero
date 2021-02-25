@@ -33,8 +33,8 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(booking_params)
-      authorize @booking
+    authorize @booking
+    if @booking.update!(booking_params)
       redirect_to booking_path(@booking), notice: 'Booking was successfully updated'
     else
       render :edit
