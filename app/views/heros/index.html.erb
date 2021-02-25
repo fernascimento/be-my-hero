@@ -4,8 +4,9 @@
   <div class="d-flex justify-content-center">
     <div class="d-inline-flex flex-column">
       <h1>Find your hero</h1>
-      <h2>Browse all heroes and find the one you need</h2>
+      <br>
       <%= render "shared/search" %>
+      <br>
     </div>
   </div>
 </div>
@@ -13,29 +14,19 @@
 
 <div class="container">
   <br>
-  <% if policy(Hero).create? %>
-    <button class="btn btn-outline-primary"><%= link_to "Become a hero", new_hero_path %></button>
-  <% end %>
   <div class="row">
     <% @heros.each do |hero| %>
-      <div class="col-lg-4 my-3">
-        <div class="card-trip">
-          <%= link_to "", hero_path(hero), class: 'card-link' %>
-          <% if hero.photos.attached? %>
-            <%= cl_image_tag hero.photos.first.key, height: 300, crop: :fill %>
-          <% else %>
-            <img src="https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg" />
-           <% end %>
-          <div class="card-trip-infos">
-            <div>
-              <h3><%= link_to  hero.name, hero_path(hero) %></h3>
-              <p><%= hero.description %></p>
-          </div>
-          <p class="card-trip-pricing"><%= hero.price %>€</p>
+      <div class="col-lg-4">
+        <% if hero.photos.attached? %>
+          <div class="box box2" style="background-image: url('<%= cl_image_path hero.photos.first.key, :width=>358, :height=>262, :crop=>'fill' %>')">
+        <% else %>
+            <div class="box box2" style="background-image: url('https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg')">
+        <% end %>
+          <div class="evenboxinner"><%= hero.name %></div>
+          <div class="evenboxinnerdown"><%= hero.price %>€</div>
+        <%= link_to "", hero_path(hero), class: 'card-link' %>
         </div>
-      </div>
       </div>
     <% end %>
   </div>
 </div>
-

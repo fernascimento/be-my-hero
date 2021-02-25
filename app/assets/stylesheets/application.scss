@@ -10,9 +10,8 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/button";
 @import "pages/index";
-
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 .card-link {
     position: absolute;
@@ -24,3 +23,90 @@
     background: black;
     opacity: 0;
   }
+
+.banner h1 {
+  text-shadow: 2px 4px 0px #FFFFFF;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+
+.row {
+  background-size: cover;
+}
+
+.box{
+  margin:25px;
+  width:250px;
+  height:250px;
+  background:#fff;
+  border: solid black;
+  border-color: black;
+  float:left;
+}
+
+.box1{
+  border-width: 3px 4px 3px 5px;
+  border-radius:95% 4% 92% 5%/4% 95% 6% 95%;
+  transform: rotate(2deg);
+}
+.box2{
+  width:350px;
+  border-width: 3px 3px 5px 5px;
+  border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
+  transform: rotate(-2deg);
+  background-size: cover;
+  background:#fff;
+  font-family: 'Bangers', cursive;
+  font-size: 25px;
+}
+
+.box3{
+  margin:-40px;
+  width:560px;
+  height:640px;
+  border-width: 5px 3px 3px 5px;
+  border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+  transform: rotate(2deg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.oddboxinner{
+  margin:250px;
+  font-family: 'Bangers', cursive;
+  font-size: 15px;
+
+}
+.evenboxinner{
+  transform: rotate(2deg);
+  margin:15px;
+  padding:0 5px;
+  float:right;
+  background: gold;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+}
+
+.evenboxinnerdown{
+    transform: rotate(2deg);
+    margin: 15px;
+    margin-top: 185px;
+    padding: 0 5px;
+    float: left;
+    background: #ddd;
+    border: 1px solid #222;
+    box-shadow: 3px 3px 0 #222;
+}
+
+.evenboxinnerright{
+  transform: rotate(2deg);
+  margin:100px;
+  margin-top: 185px;
+  padding:0 5px;
+  float:right;
+  background: gold;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+}
