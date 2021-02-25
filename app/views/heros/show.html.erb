@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://image.freepik.com/free-vector/yellow-comic-background-pop-art-comic-background-with-yellow-color_9306-180.jpg);">
+<div class="banner h-50" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://wallpapercave.com/wp/wp3433423.gif);">
   <div class="d-flex justify-content-center">
     <div class="d-inline-flex flex-column">
       <h1><%= @hero.name %></h1>
@@ -7,7 +7,7 @@
   </div>
 </div>
 
-  <div class="container">
+  <div class="container justify-content-center">
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <% if @hero.photos.attached? %>
@@ -17,28 +17,21 @@
             <% end %>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6">
-          <%= render "bookings/new", hero: @hero, booking: @booking%>
+
+        <div class="col-sm-12 col-md-2">
+          <div class="box box1"><h1><%= @hero.price %> €/Hr</h1></div>
+          <div class="box box5"><h1>Powers: <%= @hero.skill %></h1></div>
+          <div class="box box4"><h4><%= @hero.description %></h4></div>
         </div>
-
-
-
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h4><%= @hero.price %> €/Hr</h4>
-            <p>⭐️⭐️⭐️</p>
-            <h3>Powers</h3>
-            <table class="table table-bordered">
-              <tr>
-                <td><%= @hero.skill %></td>
-              </tr>
-            </table>
-          </div>
+        <div class="col-sm-12 col-md-4">
+          <div class="box box1"><h1>⭐️⭐️⭐️</h1></div>
         </div>
       </div>
-      <div><%= @hero.description %></div>
+    </div>
 
-
+<div class="col-sm-12 col-md-6">
+          <%= render "bookings/new", hero: @hero, booking: @booking%>
+        </div>
 
       <h3>Reviews</h3>
       <div class="row">
