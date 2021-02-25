@@ -22,7 +22,7 @@ user2 = User.create(email: "jens@jens.com",  password: "123456")
 user3 = User.create(email: "cynthia@cynthia.com",  password: "123456")
 user4 = User.create(email: "nick@nick.com", password: "123456")
 
-10.times do
+50.times do
   Hero.create!(user: user1,
     name: Faker::Superhero.name,
     skill: Faker::Superhero.power,
