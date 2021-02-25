@@ -36,6 +36,9 @@
       <p>⭐️⭐️⭐️ | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis laboriosam nemo ipsa odit et consequuntur quod excepturi non magnam ducimus quis asperiores expedita iste, modi minus accusantium vero. Beatae.</p>
     </div>
 
+    <% if policy(@hero).edit? %>
+      <%= link_to 'Edit', edit_hero_path(@hero) %>
+    <% end %>
     <% if policy(@hero).destroy? %>
       <%= link_to hero_path,
       method: :delete,
