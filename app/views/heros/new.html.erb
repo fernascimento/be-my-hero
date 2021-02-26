@@ -1,15 +1,23 @@
-<div>
-  <%= simple_form_for @hero do |f| %>
-    <%= f.input :name %>
-    <%= f.input :skill %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%#= f.number_field (:price, in: ${1.0..200.0}, step: ${0.5}) %>
-    <%= f.submit %>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://image.freepik.com/vetores-gratis/quadrinhos-abstrato-azul_225004-669.jpg);">
+  <div class="d-flex justify-content-center">
+    <div class="d-inline-flex flex-column">
+      <h1>Be a hero</h1>
+    </div>
+  </div>
 </div>
-
-<div>
-  <%= link_to  "Back to list", heros_path %>
+<br>
+<div class="d-flex justify-content-center">
+  <div class="container">
+    <div class="comicformoverlap">
+      <%= simple_form_for @hero do |f| %>
+        <%= f.input :name %>
+        <%= f.input :skill %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%#= f.number_field (:price, in: ${1.0..200.0}, step: ${0.5}) %>
+        <%= f.button :submit, class: "comicbtn" %>
+      <% end %>
+    </div>
+  </div>
 </div>

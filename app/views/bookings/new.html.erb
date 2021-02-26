@@ -1,0 +1,21 @@
+
+<div class="d-flex justify-content-center">
+  <div class="d-inline-flex flex-column comicheader">
+    <h1>Book <%= @hero.name %></h1>
+  </div>
+</div>
+
+<br>
+<div class="d-flex justify-content-center">
+  <div class="container">
+    <div class="comicform">
+      <%= simple_form_for [@hero, @booking] do |f| %>
+        <%= f.input :date %>
+        <%= f.input :start_time, as: :time %>
+        <%= f.input :end_time, as: :time %>
+        <%= f.input :description, as: :text %>
+        <%= f.button :submit, class: "comicbtn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
