@@ -1,9 +1,10 @@
 
+<div class="comicform">
   <%= simple_form_for [hero, booking] do |f| %>
     <%= f.input :date %>
     <%= f.input :start_time, as: :time %>
     <%= f.input :end_time, as: :time %>
-    <%= f.input :description %>
-    <%= f.submit %>
+    <%= f.input :description, as: :text %>
+    <%= f.submit%>
   <% end %>
-
+</div>
