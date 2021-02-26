@@ -24,7 +24,20 @@
         <% end %>
           <div class="evenboxinner"><%= hero.name %></div>
           <div class="evenboxinnerdown"><%= hero.price %>€</div>
-          <div class="oddboxinner"><i class="fas fa-star"></i></div>
+          <div class="oddboxinner">
+          <% counter = 1 %>
+          <% sum = 5 %>
+          <% hero.bookings.each do |booking| %>
+          <% if booking.review.present? %>
+            <% sum += booking.review.rating %>
+            <% counter += 1 %>
+          <% end %>
+          <% end %>
+          <% (sum / counter.to_i).times do %>
+              <i class="fas fa-star"></i>
+              <% end %>
+        <%= link_to "", hero_path(hero), class: 'card-link' %>
+        </div>
         <%= link_to "", hero_path(hero), class: 'card-link' %>
         </div>
       </div>
