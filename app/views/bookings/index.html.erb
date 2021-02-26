@@ -1,87 +1,16 @@
 <div class="container">
-  <div class="mt-3">
-    <h1 class="text-center p-2">My bookings</h1>
-
-    <% if @bookings.present? == false %>
-      <article class="comicbubble">
-        <div class="panel">
-          <p class="speech">No bookings</p>
-          <p class="text bottom-right">THE END</p>
-        </div>
-      </article>
-    <% else %>
-    <article class="comicbubble">
-      <div class="panel">
-        <p class="text top-left">Next booking</p>
-        <div class="d-flex justify-content-center">
-          <div class="d-inline-flex flex-column">
-            <div class="container">
-              <% if @bookings.last.date > Date.today %>
-                <h2>Booking #<%= link_to  @bookings.last.id, booking_path(@bookings.last) %></h2>
-                <p>Hero: <%= link_to  @bookings.last.hero.name, booking_path(@bookings.last) %></p>
-                <p>Date: <%= @bookings.last.date %></p>
-                <%= link_to  "Update booking", edit_booking_path(@bookings.last) %>
-                <p class="text bottom-right">In <%= (@bookings.last.date - Date.today).to_i.abs %> day(s)</p>
-              <% else %>
-                <h2 class="d-inline-block">No upcoming bookings...</h2>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel">
-        <p class="text top-left">Last booking</p>
-        <% if @bookings.nil? %>
-          <h2 class="d-inline-block">No past booking...</h2>
+  <h1>All you your Bookings</h1>
+    <% @bookings.each do |booking| %>
+      <div class="comicform">
+        <h2>Booking #<%= link_to  booking.id, booking_path(booking) %> for: </h2>
+        <p>Hero: <%= link_to  booking.hero.name, booking_path(booking) %></p>
+        <p>Date: <%= booking.date %></p>
+        <% if booking.date < Date.today %>
+          <p><%= (Date.today - booking.date).to_i.abs %> day(s) ago</p>
         <% else %>
-          <h2>Booking #<%= link_to  @bookings.last.id, booking_path(@bookings.last) %></h2>
-          <p>Hero: <%= link_to  @bookings.last.hero.name, booking_path(@bookings.last) %></p>
-          <p>Date: <%= @bookings.last.date %></p>
+          <p>In <%= (booking.date - Date.today).to_i.abs %> day(s)</p>
         <% end %>
+        <%= link_to  "Update booking", edit_booking_path(booking) %>
       </div>
-    </article>
-
-
-    <article class="comicbubble">
-      <div class="panel">
-        <p class="text top-left">Past bookings</p>
-      </div>
-    </article>
-    <% end %>
-  </div>
-</div>
-
-<% @bookings.each do |booking| %>
-  <h2>Booking #<%= link_to  booking.id, booking_path(booking) %> for: </h2>
-  <p>Hero: <%= link_to  booking.hero.name, booking_path(booking) %></p>
-  <p>Date: <%= booking.date %></p>
-  <% if booking.date < Date.today %>
-    <p><%= (Date.today - booking.date).to_i.abs %> day(s) ago</p>
-  <% else %>
-    <p>In <%= (booking.date - Date.today).to_i.abs %> day(s)</p>
   <% end %>
-  <%= link_to  "Update booking", edit_booking_path(booking) %>
- <% end %>
-
-
-<article class="comicbubble">
-  <div class="panel">
-    <p class="text top-left">Suddenly...</p>
-    <p class="text bottom-right">...something amazing happened</p>
-  </div>
-  <div class="panel">
-    <p class="text top-left">Try resizing...</p>
-    <p class="text bottom-right">...it's responsive</p>
-  </div>
-  <div class="panel">
-    <p class="speech">A speech bubble</p>
-  </div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel">
-    <p class="text bottom-right">THE END</p>
-  </div>
-</article>
+</div>

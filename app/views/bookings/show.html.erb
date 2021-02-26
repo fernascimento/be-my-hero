@@ -1,22 +1,31 @@
-<h1>Booking for: <%= link_to  @booking.hero.name, hero_path(@booking.hero) %></h1>
-
-<% if @booking.date < Date.today %>
-    <p><%= (Date.today - @booking.date).to_i.abs %> day(s) ago</p>
-<% else %>
-    <p>In <%= (@booking.date - Date.today).to_i.abs %> day(s)</p>
-<% end %>
-<p>Date: <%= @booking.date %></p>
-<p>Start time: <%= @booking.start_time.strftime("%I:%M%p") %></p>
-<p>End time: <%= @booking.end_time.strftime("%I:%M%p") %></p>
-<p>Your emergency: <%= @booking.description %></p>
-
-<%= link_to  "Update booking", edit_booking_path(@booking) %>
-<br>
-<% if policy(@booking).destroy? %>
-  <%= link_to booking_path,
-    method: :delete,
-    data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"> Delete booking</i>
-  <% end %>
- <% end %>
-<br>
-<%= link_to  "Back to my bookings", bookings_path %>
+<div class="d-flex justify-content-center">
+  <div class="container justify-content-center">
+    <div class="comicform">
+      <div class="evenboxinner">
+        <%= link_to edit_booking_path(@booking) do %><i class='far fa-edit'></i>
+           <% end %>
+        <% if policy(@booking).destroy? %>
+          <%= link_to booking_path,
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"></i>
+          <% end %>
+         <% end %>
+      </div>
+      <h1>Booking for: <%= link_to  @booking.hero.name, hero_path(@booking.hero) %></h1>
+      <br>
+      <% if @booking.date < Date.today %>
+          <h3><%= (Date.today - @booking.date).to_i.abs %> day(s) ago</h3>
+      <% else %>
+          <p>In <%= (@booking.date - Date.today).to_i.abs %> day(s)</p>
+      <% end %>
+      <p>Date:</p> <h3><%= @booking.date %></h3>
+      <p>Start time:</p> <h3><%= @booking.start_time.strftime("%I:%M%p") %></h3>
+      <p>End time:</p> <h3><%= @booking.end_time.strftime("%I:%M%p") %></h3>
+      <p>Your emergency: <%= @booking.description %></p>
+      <div class="row">
+        <%= link_to @booking.hero.name, hero_path(@booking.hero), class: 'comicbtn2' %>
+        <%= link_to "Back to all Heroes", heros_path, class: 'comicbtnback' %>
+      </div>
+    </div>
+  </div>
+</div>
