@@ -42,8 +42,10 @@
           <% counter = 1 %>
           <% sum = 5 %>
           <% @hero.bookings.each do |booking| %>
+          <% if booking.review.present? %>
             <% sum += booking.review.rating %>
             <% counter += 1 %>
+          <% end %>
           <% end %>
           <div class="box box1"><h5><% (sum / counter.to_i).times do %>
               <i class="fas fa-star"></i>
@@ -62,19 +64,21 @@
       <div class="evenboxreview"><h3>Reviews</h3></div>
     </div>
     <% @hero.bookings.each do |booking| %>
+    <% if booking.review.present? %>
     <div class="row mt-3">
       <div class="box box6">
         <p><%= booking.review.description %></p>
         <div class="evenboxstar">
           <h4><% booking.review.rating.times do %>
            <i class="fas fa-star"></i>
+           <% end %>
           <% end %></h4>
         </div>
       </div>
     </div>
     <% end %>
 
-    <div class="evenboxinner">
+    <div class="evenboxinnernew">
       <div class="booking">
         <% @hero.bookings.each do |booking|  %>
         <p>Booked for: <%= booking.date %></p>
