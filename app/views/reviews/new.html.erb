@@ -1,5 +1,19 @@
-<%= simple_form_for [@booking, @review] do |f| %>
-    <%= f.input :rating %>
-    <%= f.input :description %>
-    <%= f.submit %>
-  <% end %>
+<div class="d-flex justify-content-center">
+  <div class="d-inline-flex flex-column comicheader text-center">
+    <h1>Review <%= @booking.hero.name %></h1>
+    <h2>Let us know how you liked <%= @booking.hero.name %>'s service</h2>
+  </div>
+</div>
+
+<br>
+<div class="d-flex justify-content-center">
+  <div class="container">
+    <div class="comicform">
+      <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :description %>
+        <%= f.button :submit, class: "comicbtn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
