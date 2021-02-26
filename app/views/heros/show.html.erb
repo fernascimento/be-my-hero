@@ -1,13 +1,12 @@
-<div class="banner h-50" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://wallpapercave.com/wp/wp3433423.gif);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://wallpapercave.com/wp/wp3433423.gif);">
   <div class="d-flex justify-content-center">
     <div class="d-inline-flex flex-column">
       <h1><%= @hero.name %></h1>
-      <br>
     </div>
   </div>
 </div>
 
-  <div class="container justify-content-center">
+  <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <% if @hero.photos.attached? %>
@@ -15,44 +14,53 @@
           <% else %>
           <div class="box box3" style="background-image: url('https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg')">
             <% end %>
+            <div class="evenboxreviewleft">
+              <h3><% if policy(@hero).edit? %>
+                <%= link_to '', edit_hero_path(@hero) %>
+                  <i class='far fa-edit'></i>
+                <% end %>
+                <% if policy(@hero).destroy? %>
+                  <%= link_to hero_path,
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </h3>
+            </div>
           </div>
         </div>
 
         <div class="col-sm-12 col-md-2">
-          <div class="box box1"><h1><%= @hero.price %> €/Hr</h1></div>
+          <div class="box box1"><h3><%= @hero.price %> €/Hr</h3></div>
           <div class="box box5"><h1>Powers: <%= @hero.skill %></h1></div>
           <div class="box box4"><h4><%= @hero.description %></h4></div>
         </div>
         <div class="col-sm-12 col-md-4">
-          <div class="box box1"><h1>⭐️⭐️⭐️</h1></div>
+          <div class="box box1"><h3>⭐️⭐️⭐️</h3></div>
         </div>
+      </div>
+
+    <div class="row">
+      <%= link_to  "Book me!", new_hero_booking_path(@hero), class: 'comicbtn2' %>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="evenboxreview"><h3>Reviews</h3></div>
+    </div>
+    <div class="row">
+      <div class="box box6">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis laboriosam nemo ipsa odit et consequuntur quod excepturi non magnam ducimus quis asperiores expedita iste, modi minus accusantium vero. Beatae.</p>
+        <div class="evenboxstar"><h4>⭐️⭐️⭐️</h4></div>
       </div>
     </div>
 
-<div class="col-sm-12 col-md-6">
-          <%= render "bookings/new", hero: @hero, booking: @booking%>
-        </div>
-
-      <h3>Reviews</h3>
-      <div class="row">
-        <p>⭐️⭐️⭐️ | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis laboriosam nemo ipsa odit et consequuntur quod excepturi non magnam ducimus quis asperiores expedita iste, modi minus accusantium vero. Beatae.</p>
-      </div>
-
-      <% if policy(@hero).edit? %>
-      <%= link_to 'Edit', edit_hero_path(@hero) %>
-      <% end %>
-      <% if policy(@hero).destroy? %>
-      <%= link_to hero_path,
-      method: :delete,
-      data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"> Delete listing!</i>
-      <% end %>
-      <% end %>
-      <br>
-      <%= link_to  "Book me!", new_hero_booking_path(@hero) %>
+    <div class="evenboxinner">
       <div class="booking">
         <% @hero.bookings.each do |booking|  %>
         <p>Booked for: <%= booking.date %></p>
         <% end %>
       </div>
+    </div>
     </div>
   </div>

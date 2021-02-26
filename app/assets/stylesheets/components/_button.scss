@@ -1,10 +1,75 @@
-.comic{
-  padding: 2px;
+.comicbtn{
   background: gold;
+  text-decoration: none;
   border:1px solid #222;
   box-shadow:3px 3px 0 #222;
   font-family: 'Bangers', cursive;
   font-size: 15px;
+  color: black;
+  padding: 24px 72px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: #blue;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+.comicbtnback{
+  margin-top: -64px;
+  margin-left: -360px;
+  background: gold;
+  text-decoration: none;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 15px;
+  color: black;
+  padding: 24px 72px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: #blue;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.comicsearch{
+  background: gold;
+  text-decoration: none;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 15px;
+  color: black;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.comicbtn2{
+  margin-top: 12px;
+  margin-left: 96px;
+  background: gold;
+  text-decoration: none;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 32px;
+  color: black;
+  height: 80px;
+  width:400px;
+  text-align: center;
+  padding-top: 16px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: #blue;
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .comicname {
