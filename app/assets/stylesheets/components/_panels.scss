@@ -30,7 +30,24 @@
   background:#fff;
   border: solid black;
   border-color: black;
+  width: 700px;
+  margin: 0 auto;
+  // margin-top: -100px;
 }
+
+.comicformoverlap {
+  border-width: 3px 4px 3px 5px;
+  border-radius:95% 4% 92% 5%/4% 95% 6% 95%;
+  padding: 45px;
+  font-family: 'Bangers', cursive;
+  background:#fff;
+  border: solid black;
+  border-color: black;
+  width: 700px;
+  margin: 0 auto;
+  margin-top: -100px;
+}
+
 .row {
   background-size: cover;
 }
