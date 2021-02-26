@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <mhttp://localhost:3000/#eta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
@@ -17,34 +17,7 @@
     <%= render 'shared/flashes' %>
     <div id="page-container">
       <div id="content-wrap">
-        <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-          <%= link_to root_path, class: "navbar-brand" do %>
-            <i class="fas fa-mask"></i>
-          <% end %>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <%= link_to "Get a Hero", heros_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-              <%= link_to "Be a Hero", new_hero_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-                <%= image_tag "https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <%= link_to "Bookings", "#", class: "dropdown-item" %>
-                  <%= link_to "Your Hero Listing", "#", class: "dropdown-item" %>
-                  <%= link_to "Sign Out", "#", class: "dropdown-item" %>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <%= render "shared/navbar" %>
         </div>
         <%= yield %>
       </div>
