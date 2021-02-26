@@ -2,6 +2,16 @@
   <h1>All you your Bookings</h1>
     <% @bookings.each do |booking| %>
       <div class="comicform">
+        <div class="evenboxinner">
+          <%= link_to edit_booking_path(booking) do %><i class='far fa-edit'></i>
+             <% end %>
+          <% if policy(booking).destroy? %>
+            <%= link_to booking_path(booking),
+              method: :delete,
+              data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"></i>
+            <% end %>
+           <% end %>
+        </div>
         <h2>Booking #<%= link_to  booking.id, booking_path(booking) %> for: </h2>
         <p>Hero: <%= link_to  booking.hero.name, booking_path(booking) %></p>
         <p>Date: <%= booking.date %></p>
@@ -10,7 +20,6 @@
         <% else %>
           <p>In <%= (booking.date - Date.today).to_i.abs %> day(s)</p>
         <% end %>
-        <%= link_to  "Update booking", edit_booking_path(booking) %>
       </div>
   <% end %>
 </div>

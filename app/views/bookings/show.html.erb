@@ -23,6 +23,7 @@
       <p>End time:</p> <h3><%= @booking.end_time.strftime("%I:%M%p") %></h3>
       <p>Your emergency: <%= @booking.description %></p>
       <div class="row">
+        <%= link_to "Leave a Review", new_booking_review_path(@booking), class: 'comicbtn2' %>
         <%= link_to @booking.hero.name, hero_path(@booking.hero), class: 'comicbtn2' %>
         <%= link_to "Back to all Heroes", heros_path, class: 'comicbtnback' %>
       </div>
