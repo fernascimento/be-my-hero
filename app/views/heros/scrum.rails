@@ -1,3 +1,128 @@
+<a class="comicbtnback" href="/heros">Back to all Heroes</a>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://wallpapercave.com/wp/wp3433423.gif);">
+  <div class="d-flex justify-content-center">
+    <div class="d-inline-flex flex-column">
+      <h1><%= @hero.name %></h1>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <% if @hero.photos.attached? %>
+        <div class="box box3" style="background-image: url('<%= cl_image_path @hero.photos.first.key, :width=>358, :height=>262, :crop=>'fill' %>')">
+          <% else %>
+          <div class="box box3" style="background-image: url('https://blog.dana-farber.org/insight/wp-content/uploads/2014/09/452186425-Converted.jpg.jpg')">
+            <% end %>
+            <div class="evenboxreviewleft">
+              <h3><% if policy(@hero).edit? %>
+                <%= link_to edit_hero_path(@hero) do %><i class='far fa-edit'></i>
+                  <% end %>
+                <% end %>
+                <% if policy(@hero).destroy? %>
+                  <%= link_to hero_path,
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+
+########button
+
+.comicbtn{
+  background: gold;
+  text-decoration: none;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 15px;
+  color: black;
+  padding: 24px 72px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+.comicbtnback{
+  margin-top: 24px;
+  float: left;
+  background: #ddd;
+  text-decoration: none;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 15px;
+  color: black;
+  padding: 24px 72px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.comicsearch{
+  background: gold;
+  text-decoration: none;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 15px;
+  color: black;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.comicbtn2{
+  margin-top: 12px;
+  margin-left: 96px;
+  background: gold;
+  text-decoration: none;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 32px;
+  color: black;
+  height: 80px;
+  width:400px;
+  text-align: center;
+  padding-top: 16px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.comicname {
+  padding: 10px;
+  background: gold;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  font-family: 'Bangers', cursive;
+  font-size: 32px;
+  text-align: center;
+}
+
+
+#########################panal
+
 .card-link {
     position: absolute;
     top: 0;
@@ -30,24 +155,7 @@
   background:#fff;
   border: solid black;
   border-color: black;
-  width: 700px;
-  margin: 0 auto;
-  // margin-top: -100px;
 }
-
-.comicformoverlap {
-  border-width: 3px 4px 3px 5px;
-  border-radius:95% 4% 92% 5%/4% 95% 6% 95%;
-  padding: 45px;
-  font-family: 'Bangers', cursive;
-  background:#fff;
-  border: solid black;
-  border-color: black;
-  width: 700px;
-  margin: 0 auto;
-  margin-top: -100px;
-}
-
 .row {
   background-size: cover;
 }
@@ -60,8 +168,7 @@
 
 .box1{
   margin:-44px;
-  width: 188px;
-  height: 96px;
+  width: 180px;
   border-width: 3px 4px 3px 5px;
   border-radius:95% 4% 92% 5%/4% 95% 6% 95%;
   transform: rotate(2deg);
@@ -98,20 +205,19 @@
   margin-left:-44px;
   margin-top: 8px;
   padding: 20px;
+  width:360px;
   border-width: 3px 3px 5px 5px;
   border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
   background:#fff;
   font-family: 'Bangers', cursive;
   height:360px;
-  width:376px;
 }
 
 .box5{
-  width:376px;
-  height: 96px;
   margin-left:-44px;
   margin-top: 48px;
   padding: 20px;
+  width:360px;
   border-width: 3px 3px 5px 5px;
   border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
   background:#fff;

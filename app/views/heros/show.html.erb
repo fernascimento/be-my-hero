@@ -1,3 +1,4 @@
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://wallpapercave.com/wp/wp3433423.gif);">
   <div class="d-flex justify-content-center">
     <div class="d-inline-flex flex-column">
@@ -5,6 +6,8 @@
     </div>
   </div>
 </div>
+
+
 
   <div class="container">
     <div class="row">
@@ -16,8 +19,8 @@
             <% end %>
             <div class="evenboxreviewleft">
               <h3><% if policy(@hero).edit? %>
-                <%= link_to '', edit_hero_path(@hero) %>
-                  <i class='far fa-edit'></i>
+                <%= link_to edit_hero_path(@hero) do %><i class='far fa-edit'></i>
+                  <% end %>
                 <% end %>
                 <% if policy(@hero).destroy? %>
                   <%= link_to hero_path,
@@ -32,25 +35,26 @@
 
         <div class="col-sm-12 col-md-2">
           <div class="box box1"><h3><%= @hero.price %> €/Hr</h3></div>
-          <div class="box box5"><h1>Powers: <%= @hero.skill %></h1></div>
-          <div class="box box4"><h4><%= @hero.description %></h4></div>
+          <div class="box box5"><h3>Powers: <%= @hero.skill %></h3></div>
+          <div class="box box4"><h5><%= @hero.description %></h5></div>
         </div>
-        <div class="col-sm-12 col-md-4">
-          <% counter = 0 %>
+        <div class="col-sm-12 col-md-1">
+          <% counter = 1 %>
           <% sum = 0 %>
           <% @hero.bookings.each do |booking| %>
             <% sum += booking.review.rating %>
             <% counter += 1 %>
           <% end %>
-          <div class="box box1"><h3><% (sum / counter.to_i).times do %>
+          <div class="box box1"><h5><% 5.times do %>
               <i class="fas fa-star"></i>
             <% end %>
-          </h3></div>
+          </h5></div>
         </div>
       </div>
 
     <div class="row">
       <%= link_to  "Book me!", new_hero_booking_path(@hero), class: 'comicbtn2' %>
+       <%= link_to  "Back to all Heroes", heros_path, class: 'comicbtnback' %>
     </div>
     <br>
     <br>
