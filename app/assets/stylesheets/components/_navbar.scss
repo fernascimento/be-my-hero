@@ -1,3 +1,10 @@
+.navbar {
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
 .navbar-lewagon {
   
   justify-content: space-between;
@@ -17,3 +24,4 @@
   font-family: 'Bangers', cursive;
   font-size: 25px;
 }
+
