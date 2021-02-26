@@ -183,6 +183,7 @@
   border:1px solid #222;
   box-shadow:3px 3px 0 #222;
   z-index: 1;
+  white-space: nowrap;
 }
 
 .evenboxinnerdown{
@@ -205,4 +206,9 @@
   background: gold;
   border:1px solid #222;
   box-shadow:3px 3px 0 #222;
+}
+
+.evenboxstar .fa-star{
+  margin-top: 4px;
+  color: white;
 }

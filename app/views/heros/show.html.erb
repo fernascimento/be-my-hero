@@ -36,7 +36,16 @@
           <div class="box box4"><h4><%= @hero.description %></h4></div>
         </div>
         <div class="col-sm-12 col-md-4">
-          <div class="box box1"><h3>⭐️⭐️⭐️</h3></div>
+          <% counter = 0 %>
+          <% sum = 0 %>
+          <% @hero.bookings.each do |booking| %>
+            <% sum += booking.review.rating %>
+            <% counter += 1 %>
+          <% end %>
+          <div class="box box1"><h3><% (sum / counter.to_i).times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </h3></div>
         </div>
       </div>
 
@@ -48,12 +57,18 @@
     <div class="row">
       <div class="evenboxreview"><h3>Reviews</h3></div>
     </div>
-    <div class="row">
+    <% @hero.bookings.each do |booking| %>
+    <div class="row mt-3">
       <div class="box box6">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis laboriosam nemo ipsa odit et consequuntur quod excepturi non magnam ducimus quis asperiores expedita iste, modi minus accusantium vero. Beatae.</p>
-        <div class="evenboxstar"><h4>⭐️⭐️⭐️</h4></div>
+        <p><%= booking.review.description %></p>
+        <div class="evenboxstar">
+          <h4><% booking.review.rating.times do %>
+           <i class="fas fa-star"></i>
+          <% end %></h4>
+        </div>
       </div>
     </div>
+    <% end %>
 
     <div class="evenboxinner">
       <div class="booking">
